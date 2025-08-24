@@ -6,3 +6,4 @@ data class ErrorResponseBody(
     val error: String,
     val path: String
 )
+  
