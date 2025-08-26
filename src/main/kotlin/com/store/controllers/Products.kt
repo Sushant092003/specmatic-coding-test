@@ -20,12 +20,12 @@ import org.springframework.web.bind.annotation.RestController
 class Products(private val productService: ProductService){
 
     @PostMapping
-    fun createProduct(@Valid @RequestBody request: ProductDetails): ResponseEntity<ProductId> {
+    fun createProduct(@Valid @RequestBody details: ProductDetails): ResponseEntity<ProductId> {
         val product = productService.createProduct(
-            name = request.name,
-            type = request.type,
-            inventory = request.inventory,
-            cost = request.cost
+            name = details.name,
+            type = details.type,
+            inventory = details.inventory,
+            cost = details.cost
         )
         return ResponseEntity.status(201).body(ProductId(product.id))
     }
